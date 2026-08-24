@@ -1,0 +1,41 @@
+name: bills_maker
+description: "Bills Maker - facturación nativa para Windows y Android."
+publish_to: 'none'
+version: 1.1.24+32
+
+environment:
+  sdk: ^3.12.2
+
+dependencies:
+  excel: 4.0.6
+  file_picker: 10.3.10
+  flutter:
+    sdk: flutter
+  intl: 0.20.2
+  local_notifier: 0.1.6
+  pdf: 3.12.0
+  printing: 5.14.2
+  supabase_flutter: 2.12.0
+
+dev_dependencies:
+  flutter_launcher_icons: 0.14.4
+  flutter_lints: 6.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/bills-logo.png
+    - assets/fonts/Lato-Regular.ttf
+    - assets/fonts/Lato-Bold.ttf
+
+flutter_launcher_icons:
+  image_path: "assets/bills-logo.png"
+  android: true
+  adaptive_icon_background: "#142A5C"
+  adaptive_icon_foreground: "assets/bills-logo.png"
+  windows:
+    generate: true
+    image_path: "assets/bills-logo.png"
+    icon_size: 256
