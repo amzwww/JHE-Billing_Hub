@@ -1,4 +1,4 @@
-# Bills Maker nativo
+# JHE Billing Hub nativo
 
 Aplicación Flutter compilada de forma nativa para Windows y Android. No utiliza Electron, Chromium, WebView ni una sesión de navegador. Conserva Supabase para las cuentas, roles, avisos y datos existentes.
 
@@ -17,7 +17,7 @@ Aplicación Flutter compilada de forma nativa para Windows y Android. No utiliza
 powershell -ExecutionPolicy Bypass -File tool/build-reliable.ps1
 ```
 
-Los entregables se generan en `../release-native/`.
+Los entregables se generan en `../releases/` y se conserva sólo la última versión.
 
 ## Árbol de ponencias
 

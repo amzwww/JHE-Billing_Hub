@@ -6,7 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   testWidgets('muestra el estado de configuración sin claves', (tester) async {
     await tester.pumpWidget(const BillsMakerApp());
-    expect(find.text('Bills Maker'), findsOneWidget);
+    expect(find.text('JHE Billing Hub'), findsOneWidget);
     expect(find.textContaining('configuración pública'), findsOneWidget);
   });
 

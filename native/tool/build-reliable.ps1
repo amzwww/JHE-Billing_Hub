@@ -3,7 +3,7 @@ $nativeRoot = Split-Path -Parent $PSScriptRoot
 $repoRoot = Split-Path -Parent $nativeRoot
 $stageRoot = Join-Path $env:LOCALAPPDATA 'BMB'
 $stageNative = Join-Path $stageRoot 'native'
-$releaseRoot = Join-Path $repoRoot 'release-native'
+$releaseRoot = Join-Path $repoRoot 'releases'
 $expectedPrefix = Join-Path $env:LOCALAPPDATA 'BMB'
 
 if (-not $stageRoot.StartsWith($expectedPrefix, [System.StringComparison]::OrdinalIgnoreCase)) { throw 'La ruta temporal no es segura.' }
@@ -16,6 +16,6 @@ if ($LASTEXITCODE -ne 0) { throw 'La compilación aislada ha fallado.' }
 
 $iscc = Join-Path $env:LOCALAPPDATA 'Programs\Inno Setup 7\ISCC.exe'
 if (Test-Path -LiteralPath $iscc) {
-    & $iscc (Join-Path $nativeRoot 'installer\BillsMaker.iss')
+    & $iscc (Join-Path $nativeRoot 'installer\JHE-Billing_Hub.iss')
     if ($LASTEXITCODE -ne 0) { throw 'La creación del instalador ha fallado.' }
 }

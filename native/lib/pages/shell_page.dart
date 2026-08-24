@@ -128,7 +128,7 @@ class _ShellPageState extends State<ShellPage> {
       try {
         await _desktopNotifications.show(
           id: id,
-          title: row['title']?.toString() ?? 'Bills Maker',
+          title: row['title']?.toString() ?? 'JHE Billing Hub',
           body: row['body']?.toString() ?? '',
           onClick: () => unawaited(_handleNotificationSelection(id)),
         );
@@ -544,7 +544,7 @@ class _ShellPageState extends State<ShellPage> {
                             ),
                             const SizedBox(width: 12),
                             const Text(
-                              'Bills Maker',
+                              'JHE Billing Hub',
                               style: TextStyle(fontWeight: FontWeight.w800),
                             ),
                           ],
@@ -600,7 +600,7 @@ class _ShellPageState extends State<ShellPage> {
                   const SizedBox(width: 12),
                   const Expanded(
                     child: Text(
-                      'Bills Maker',
+                      'JHE Billing Hub',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 22,

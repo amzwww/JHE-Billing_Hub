@@ -19,7 +19,7 @@ class BillsMakerApp extends StatelessWidget {
       surface: billsSurface,
     );
     return MaterialApp(
-      title: 'Bills Maker',
+      title: 'JHE Billing Hub',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
@@ -109,7 +109,7 @@ class _MissingConfigurationPage extends StatelessWidget {
                     ),
                     SizedBox(height: 20),
                     Text(
-                      'Bills Maker',
+                      'JHE Billing Hub',
                       style: TextStyle(
                         fontSize: 32,
                         fontWeight: FontWeight.w800,

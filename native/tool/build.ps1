@@ -7,7 +7,7 @@ $settings = @{}
 $flutter = Join-Path $env:USERPROFILE 'tools\flutter\bin\flutter.bat'
 
 if (-not (Test-Path -LiteralPath $flutter)) { throw 'No se encuentra Flutter.' }
-if (Get-Process -Name 'bills_maker' -ErrorAction SilentlyContinue) { throw 'Cierra Bills Maker antes de compilar.' }
+if (Get-Process -Name 'bills_maker' -ErrorAction SilentlyContinue) { throw 'Cierra JHE Billing Hub antes de compilar.' }
 
 Get-Content -LiteralPath (Join-Path $repoRoot '.env') | ForEach-Object {
     if ($_ -match '^([^#=]+)=(.*)$') { $settings[$matches[1]] = $matches[2].Trim('"') }
@@ -33,13 +33,15 @@ try {
     & $flutter build apk --release --split-per-abi @defines
     if ($LASTEXITCODE -ne 0) { throw 'La compilación de Android ha fallado.' }
 
-    $releaseRoot = if ($ReleaseRootOverride) { $ReleaseRootOverride } else { Join-Path $repoRoot 'release-native' }
+    $releaseRoot = if ($ReleaseRootOverride) { $ReleaseRootOverride } else { Join-Path $repoRoot 'releases' }
+    if (-not ($releaseRoot -like "$(Join-Path $repoRoot 'releases')*")) { throw 'La carpeta de salida no es segura.' }
+    if (Test-Path -LiteralPath $releaseRoot) {
+        Get-ChildItem -LiteralPath $releaseRoot -Force | Remove-Item -Recurse -Force
+    }
     New-Item -ItemType Directory -Path $releaseRoot -Force | Out-Null
-    $windowsRelease = Join-Path $releaseRoot 'Bills-Maker-Windows-native-1.1.24'
+    $windowsRelease = Join-Path $releaseRoot 'JHE-Billing-Hub-Windows-native-1.1.24'
     New-Item -ItemType Directory -Path $windowsRelease -Force | Out-Null
     Copy-Item -Path (Join-Path $nativeRoot 'build\windows\x64\runner\Release\*') -Destination $windowsRelease -Recurse -Force
-    Copy-Item -LiteralPath (Join-Path $nativeRoot 'build\app\outputs\flutter-apk\app-arm64-v8a-release.apk') -Destination (Join-Path $releaseRoot 'Bills-Maker-Android-native-1.1.24.apk') -Force
-    Copy-Item -LiteralPath (Join-Path $nativeRoot 'build\app\outputs\flutter-apk\app-armeabi-v7a-release.apk') -Destination (Join-Path $releaseRoot 'Bills-Maker-Android-native-1.1.24-armeabi-v7a.apk') -Force
-    Copy-Item -LiteralPath (Join-Path $nativeRoot 'build\app\outputs\flutter-apk\app-x86_64-release.apk') -Destination (Join-Path $releaseRoot 'Bills-Maker-Android-native-1.1.24-x86_64.apk') -Force
+    Copy-Item -LiteralPath (Join-Path $nativeRoot 'build\app\outputs\flutter-apk\app-arm64-v8a-release.apk') -Destination (Join-Path $releaseRoot 'JHE-Billing-Hub-Android-native-1.1.24.apk') -Force
 }
 finally { Pop-Location }

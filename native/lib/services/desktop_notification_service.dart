@@ -7,7 +7,7 @@ class DesktopNotificationService {
   Future<void> initialize() async {
     if (defaultTargetPlatform != TargetPlatform.windows || _initialized) return;
     await localNotifier.setup(
-      appName: 'Bills Maker',
+      appName: 'JHE Billing Hub',
       shortcutPolicy: ShortcutPolicy.requireCreate,
     );
     _initialized = true;
