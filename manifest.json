@@ -1,0 +1,37 @@
+{
+    "name": "Billing Hub",
+    "short_name": "Billing Hub",
+    "id": "/JHE-Billing_Hub/",
+    "start_url": "/JHE-Billing_Hub/",
+    "scope": "/JHE-Billing_Hub/",
+    "display": "standalone",
+    "background_color": "#F5F7FC",
+    "theme_color": "#142A5C",
+    "description": "Gestión de facturas, presupuestos y solicitudes de facturación.",
+    "orientation": "any",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}
