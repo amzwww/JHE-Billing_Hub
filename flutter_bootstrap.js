@@ -33,9 +33,6 @@ addEventListener("message", eventListener);
 if (!window._flutter) {
   window._flutter = {};
 }
-_flutter.buildConfig = {"engineRevision":"83675ed27633283e7fc296c8bca22e841224c096","builds":[{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js"}]};
+_flutter.buildConfig = {"engineRevision":"83675ed27633283e7fc296c8bca22e841224c096","builds":[{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js"},{}]};
 
-// No se registra un service worker: la versión anterior se desregistraba y
-// recargaba la página, pero Flutter volvía a registrarla en cada arranque.
-// En Safari y en equipos nuevos esto podía provocar un bucle de recargas.
 _flutter.loader.load();
